@@ -1,0 +1,106 @@
+{% extends "layout.html" %}
+{% block title %}
+  <title>Upload Artifact</title>
+{% endblock title %}
+{% block content %}
+{% include 'includes/admin_navbar.html' %}
+<div class="content-section">
+		<form method ="POST" action="">
+			{{ form.hidden_tag() }}
+			<fieldset class="form-group">
+				<legend class="border-bottom mb-4">{{ title }}</legend>
+
+				<div class ="form-group">
+				 Select a Phase Name:
+					<br>
+					<select name="phaseSelect" id="phaseSelect" method="POST" onchange="this.form.submit();">
+                			{% for p in phases %}
+                			<tr>
+                    			<option value="{{ p.name }}">{{ p.name }}</option>
+                    			{% endfor %}
+            		</select>
+				</div>
+				<br>
+                <div class ="form-group">
+					{{ form.artifactName.label(class="form-control-label") }}
+					
+					{% if form.artifactName.errors %}
+						{{ form.artifactName(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.artifactName.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+							
+						</div>
+					{% else %}
+						{{ form.artifactName(class="form-control form-control-lg") }}
+					{% endif %}
+				</div>
+                <div class ="form-group">
+					{{ form.artifactType.label(class="form-control-label") }}
+					
+					{% if form.artifactType.errors %}
+						{{ form.artifactType(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.artifactType.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+							
+						</div>
+					{% else %}
+						{{ form.artifactType(class="form-control form-control-lg") }}
+					{% endif %}
+				</div>
+                <div class ="form-group">
+					{{ form.artifactString.label(class="form-control-label") }}
+					
+					{% if form.artifactString.errors %}
+						{{ form.artifactString(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.artifactString.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+							
+						</div>
+					{% else %}
+						{{ form.artifactString(class="form-control form-control-lg") }}
+					{% endif %}
+				</div>
+                <div class ="form-group">
+					{{ form.difficulty.label(class="form-control-label") }}
+					
+					{% if form.difficulty.errors %}
+						{{ form.difficulty(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.difficulty.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+							
+						</div>
+					{% else %}
+						{{ form.difficulty(class="form-control form-control-lg") }}
+					{% endif %}
+				</div>
+                <div class ="form-group">
+					{{ form.notes.label(class="form-control-label") }}
+					
+					{% if form.notes.errors %}
+						{{ form.notes(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.notes.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+							
+						</div>
+					{% else %}
+						{{ form.notes(class="form-control form-control-lg") }}
+					{% endif %}
+				</div>
+			</fieldset>
+			<dir class ="form-group">
+				{{ form.submit(class="btn btn-outline-info") }}
+			</dir>
+		</form>
+	</div>
+
+{% endblock content %}

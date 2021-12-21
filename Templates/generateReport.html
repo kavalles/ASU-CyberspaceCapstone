@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block title %}
+  <title>Generate Report</title>
+{% endblock title %}
+{% block content %}
+{% include 'includes/assessor_navbar.html' %}
+
+   <h1>Generate Reports</h1>
+   
+    <div><a class="assessorlink2" href="{{ url_for('downloadTeamSubmissions') }}">Export All Team Submissions to CSV</a></div>
+   <br>
+   <div><a class="assessorlink2" href="{{ url_for('downloadCSV') }}">Export Artifact List to CSV</a></div>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+
+   <h5>Generate Report By Team</h5>
+   <div class="col-md-4">
+    <div class="content-section">
+    <form action="{{url_for('downloadByTeam')}}" method="POST">
+        <label for="teams">Select a team:</label>
+        <SELECT name="dropdown">
+
+        {% for t in teamList %}
+            <OPTION value={{t.userId}}> {{t.username}}</OPTION>
+        {% endfor %}
+        </SELECT>
+        <br>
+        <br>
+        <input class="button" type="submit" value="Export Team Submissions to CSV">
+        <!--<button type="submit">Generate Progress Report</button>
+        -->
+    </form>
+    </div>
+    </div>
+    
+
+
+{% endblock content %}

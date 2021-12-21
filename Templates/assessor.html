@@ -1,0 +1,37 @@
+<!-- This was changed to assessorHome.html, use that instead
+
+{% extends "layout.html" %}
+{% block title %}
+	<title>Assessor Homepage</title>
+{% endblock title %}
+{% block content %}
+    <h1>Welcome</h1>
+{% include 'includes/assessor_navbar.html' %}
+
+   <p>We are currently in phase 1</p>
+	{% for c in challenge %}
+		<article class="media content-section">
+		  <div class="media-body">
+		    <div class="article-metadata">
+		      <a class="mr-2" href="#">{{ c.type }}</a>
+		    </div>
+		    <h2><a class="article-title" href="#">{{ c.aboout }}</a></h2>
+		    <p class="article-content">{{ c.level }}</p>
+		  </div>
+		</article>
+	{% endfor %}
+{% endblock content %}
+
+{% block sideList %}
+	    <div class="col-md-4">
+	      <div class="content-section">
+	        <p class='text-muted'>
+	          <ul class="list-group">
+	            <li class="list-group-item list-group-item-light">Team Performance</li>
+	            <li class="list-group-item list-group-item-light">Phase Progress</li>
+	            <li class="list-group-item list-group-item-light">Artifact List</li>
+	          </ul>
+	        </p>
+	      </div>
+	    </div>
+{% endblock sideList%}-->

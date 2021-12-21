@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+{% block title %}
+	<title>Phases</title>
+{% endblock title %}
+{% block content %}
+{% include 'includes/assessor_navbar.html' %}
+	<div class="phaseProgress">
+		<img src="{{url_for('plot_phases')}}" alt="Phase plot">
+	</div>
+<!--		<legend><small>Correct Submissions for Phase</small></legend>
+		<small>Total Correct Submissions for Phase {{ data[0] }}: {{ sCount }} </small>
+
+		<table class ="phaseProgressTable" cellpadding="8">
+			<tr>
+			<th>Phase Name</th>
+			<th>Submission ID</th>
+			<th>User Name</th>
+			<th>Time Submitted</th>
+			</tr>
+		{% for p in phaseData %}
+			<tr>
+			<td>{{p.name}}</td>
+			<td>{{p.userArtifactSubmissionId}}</td>
+			<td>{{p.username}}</td>
+			<td>{{p.updatedTimeStamp}}</td>
+			</tr>
+		{% endfor %}
+	</table>
+-->
+{% endblock content %}
+
+{% block sideList %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+<!--    <div class="col-md-4">
+	      <div class="content-section">
+			<form action="{{url_for('phases')}}" method="POST">
+	        <label for="phases">Select a Phase</label>
+			<SELECT name="dropdown">
+
+			<form action="{{url_for('teamProgress')}}" method="POST">
+			{% for p in phaseList %}
+				<OPTION value={{p.phaseId}}> {{p.name}}</OPTION>
+			{% endfor %}
+			</SELECT>
+			<input class="button" type="submit" value="select">
+		<optgroup label="Phases">
+			  	<option value="Phase 1">Phase 1</option>
+    			<option value="Phase 2">Phase 2</option>
+				<option value="Phase #">Phase #</option>
+                <option value="Phase #">New Phase</option>
+  			</optgroup>
+		</select>
+
+	      </div>
+	    </div>
+-->
+{% endblock sideList%}

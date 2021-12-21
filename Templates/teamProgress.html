@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block content %}
+{% include 'includes/assessor_navbar.html' %}
+
+
+    <div class="teamProgress">
+        <legend><small>Correct Submissions for Team {{ team_name.username }}</small></legend>
+        <small>Total Correct Submissions: {{ totalCorrect }} out of {{ total }}</small>
+        <table class ="teamProgressTable" cellpadding="8">
+            <tr>
+            <th>Team Name</th>
+            <th>Submission ID</th>
+            <th>Submission String</th>
+            <th>Phase ID</th>
+            <th>Time Submitted</th>
+            </tr>
+        {% for r in results %}
+            <tr>
+            <td>{{r.username}}</td>
+            <td>{{r.userArtifactSubmissionId}}</td>
+            <td>{{r.submissionString}}</td>
+            <td>{{r.phaseId}}</td>
+            <td>{{r.updatedTimeStamp}}</td>
+            </tr>
+        {% endfor %}
+        </table>
+        <br> <br>
+        <legend><small>Incorrect Submissions for Team {{ team_name.username }}</small></legend>
+        <small>Total Incorrect Submissions: {{ totalIncorrect }} out of {{ total }}</small>
+        <table class ="teamProgressTable" cellpadding="8">
+            <tr>
+            <th>Team Name</th>
+            <th>Submission ID</th>
+            <th>Submission String</th>
+            <th>Time Submitted</th>
+            </tr>
+        {% for r in results2 %}
+            <tr>
+                <td>{{r.username}}</td>
+                <td>{{r.userArtifactSubmissionId}}</td>
+                <td>{{r.submissionString}}</td>
+                <td>{{r.updatedTimeStamp}}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    </div>
+{% endblock content %}
+{% block sideList %}
+    
+    <div class="col-md-4">
+    <div class="content-section">
+    <form action="{{url_for('teamProgress')}}" method="POST">
+        <label for="teams">Select a team:</label>
+        <SELECT name="dropdown">
+
+        {% for t in teamList %}
+            <OPTION value={{t.userId}}> {{t.username}}</OPTION>
+        {% endfor %}
+        </SELECT>
+        <input class="button" type="submit" value="select">
+        <!--<button type="submit">Generate Progress Report</button>
+        -->
+    </form>
+    </div>
+    </div>
+{% endblock sideList%}

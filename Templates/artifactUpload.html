@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block title %}
+  <title>Upload Artifact Answers</title>
+{% endblock title %}
+{% block content %}
+{% include 'includes/admin_navbar.html' %}
+
+<h1>Upload Artifact Answers</h1>
+   <br>
+   <div><a class="assessorlink2" href="{{ url_for('individualArtifact') }}">Upload Individual Artifact</a></div>
+   <br>
+   <div><a class="assessorlink2" href="{{ url_for('editArtifact') }}">Edit an Artifact</a></div>
+   <br>
+   <div><a class="assessorlink2" href="{{ url_for('bulkArtifact') }}">Upload Bulk Artifact List</a></div>
+   <br>
+   <div><a class="assessorlink2" href="{{ url_for('deleteArtifactList') }}" onclick="return confirm('Are you sure you want to delete the correct artifact list?');">Delete Artifact List</a></div>
+   <br>
+
+
+
+  <div class="manageArtifactList">
+  <form method ="POST" action="">
+  <legend><small>Artifacts</small></legend>
+  <table class=manageArtifactTable cellpadding="20">
+    <tr>
+    <th>MSEL</th>
+    <th>Type</th>
+    <th>String</th>
+    <th>Difficulty</th>
+    <th>Notes</th>
+    </tr>
+  {% for a in artifacts %}
+    <tr>
+    <td>{{ a.msel }}</td>
+    <td>{{ a.artifactType }}</td>
+    <td>{{ a.artifactString }}</td>
+    <td>{{ a.difficulty}}</td>
+    <td>{{ a.notes }}</td>  
+    </tr>
+  {% endfor %}
+  </table>
+</form>
+</div>
+
+{% endblock content %}

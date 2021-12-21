@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="content-section">
+		<form method ="POST" action="">
+			{{ form.hidden_tag() }}
+			<fieldset class="form-group">
+				<legend class="border-bottom mb-4">Create an account: {{ title }}</legend>
+				<div class ="form-group">
+					{{ form.howMany.label(class="form-control-label") }}
+
+					{% if form.howMany.errors %}
+						{{ form.howMany(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.howMany.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+							
+						</div>
+					{% else %}
+						{{ form.howMany(class="form-control form-control-lg") }}
+					{% endif %}
+
+				</div>
+
+			</fieldset>
+			<dir class ="form-group">
+				{{ form.submit(class="btn btn-outline-info") }}
+			</dir>
+		</form>
+	</div>
+	<!--<div class="border-top pt-3">
+		<small class="tet-muted">
+			Already Have an Account? <a class="ml-2" href="{{ url_for('login') }}" >Sign In</a>
+		</small>
+	</div>-->
+		<div class="border-top pt-3">
+		<small class="tet-muted">
+			<a class="ml-2" href="{{ url_for('registerAdmin') }}">Admin</a>
+			<a class="ml-2" href="{{ url_for('register') }}">Assessor</a>
+		</small>
+	</div>
+
+{% endblock content %}

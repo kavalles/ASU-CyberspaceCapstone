@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block title %}
+  <title>Upload Artifact List</title>
+{% endblock title %}
+{% block content %}
+{% include 'includes/admin_navbar.html' %}
+
+   <h1>Upload Artifact List</h1>
+   <br>
+   <form method ="POST" action="" enctype=multipart/form-data>
+		{{ form.hidden_tag() }}
+    	{{ form.file }}
+    <input type="submit">
+    <br> <br>
+   
+
+{% endblock content %}

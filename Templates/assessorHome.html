@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block title %}
+	<title>Assessor Homepage</title>
+{% endblock title %}
+{% block content %}
+    <!--<h1>Welcome to Cybershield</h1>-->
+    <h1> <small> {{session.username}} </small> </h1>
+
+	{% include 'includes/assessor_navbar.html' %}
+	<br>
+	<!--<div class="assessorHomePage" >
+	 <a class="assessorlink" href="#">Overall Dashboard View</a>
+	</div>-->
+
+{% endblock content %}
+
+{% block sideList %}
+	    
+{% endblock sideList%}

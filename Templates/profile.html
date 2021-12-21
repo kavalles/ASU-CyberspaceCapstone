@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+{% block content %}
+<body style="background: rgba(20, 50, 120, 0.2);">
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">{{session.username}}</span><span class="text-black-50">{{session.rolename}}</span><span> </span></div>
+            {% if session.role != 0 %}
+            <a  href="{{ url_for('deleteAccount') }}" onclick="return confirm('Are you sure you want to delete your account?');">Delete Your Account</a>
+            {% endif %}
+        </div>
+        <div class="col-md-5 border-right">
+             <div class="content-section">
+                 <form method ="POST" action="">
+                    {{ form.hidden_tag() }}
+                <fieldset class="form-group">
+                    <div class="p-3 py-5">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="text-right">Edit Password</h4>
+                        </div>
+                       
+                        <div class="row mt-3">
+                            <div class ="form-group">
+                              {{ form.oldPassword.label(class="form-control-label") }}
+                               {% if form.oldPassword.errors %}
+                              {{ form.oldPassword(class="form-control form-control-lg is-invalid") }}
+                              <div class="invalid-feedback">
+                                {% for error in form.oldPassword.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                             </div>
+                            {% else %}
+                                {{ form.oldPassword(class="form-control form-control-lg") }}
+                            {% endif %}
+                            </div>
+
+                             <div class ="form-group">
+                              {{ form.newPassword.label(class="form-control-label") }}
+                               {% if form.newPassword.errors %}
+                              {{ form.newPassword(class="form-control form-control-lg is-invalid") }}
+                              <div class="invalid-feedback">
+                                {% for error in form.newPassword.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                             </div>
+                            {% else %}
+                                {{ form.newPassword(class="form-control form-control-lg") }}
+                            {% endif %}
+                            </div>
+
+
+                            <div class ="form-group">
+                                {{ form.confirm_newPassword.label(class="form-control-label") }}
+                    
+                                {% if form.confirm_newPassword.errors %}
+                                    {{ form.confirm_newPassword(class="form-control form-control-lg is-invalid") }}
+                                    <div class="invalid-feedback">
+                                    {% for error in form.confirm_newPassword.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                            
+                                </div>
+                                {% else %}
+                                    {{ form.confirm_newPassword(class="form-control form-control-lg") }}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+             <div class ="form-group">
+                    {{ form.submit(class="btn btn-outline-info") }}
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

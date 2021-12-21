@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="bulkRegisterSuccess">
+	<legend><small>Successfully registered Teams:</small></legend>
+	<table class=newUsertable cellpadding="20">
+		<tr>
+		<th>Username</th>
+		<th>Password</th>
+		</tr>
+	{% for u in newUsers %}
+		<tr>
+		<td>{{ u }}</td>
+		<td>{{ defaultPassword }}</td>	
+		</tr>
+	{% endfor %}
+	</table>
+</div>
+
+
+{% endblock content %}

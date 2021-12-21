@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block title %}
+  <title>Upload Artifact List</title>
+{% endblock title %}
+{% block content %}
+{% include 'includes/admin_navbar.html' %}
+
+   <h1>Manage Teams</h1>
+   <br>
+   <div><a class="assessorlink2" href="{{ url_for('registerTeam') }}">Register Individual Team</a></div>
+   <br>
+   <div><a class="assessorlink2" href="{{ url_for('registerTeamBulk') }}">Register Multiple Teams</a></div>
+   <br>
+   <div><a class="assessorlink2" href="{{ url_for('deleteAllTeams') }}" onclick="return confirm('Are you sure you want to delete all of the teams?');">Delete All Teams</a></div>
+   <br>
+   <div><a class="assessorlink2" href="{{ url_for('deleteAllSubmissions') }}" onclick="return confirm('Are you sure you want to delete all team artifact submissions?');">Delete All Team Submissions</a></div>
+
+
+
+<div class="teams">
+  <form method ="POST" action="">
+      <fieldset class="form-group">
+
+        <table class = TeamTable cellpadding="8"cellspacing="12">
+        <tr>
+          <th>Registered Teams</th>
+        </tr>
+          {% for t in teams %}
+          <tr>
+            <td>{{ t.username }}</td> 
+          </tr>
+          {% endfor %}
+        </table>
+      </fieldset>
+  </div>
+
+{% endblock content %}

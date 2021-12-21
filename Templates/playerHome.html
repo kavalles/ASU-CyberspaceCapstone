@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+{% block title %}
+	<title>Team Homepage</title>
+{% endblock title %}
+{% block content %}
+   <!--<h1>Welcome to Cybershield </h1>-->
+   <h1> <small> {{session.username}} </small> </h1>
+
+
+	<div class="submitArtifacts">
+		<form method ="POST" action="">
+			{{ form.hidden_tag() }}
+			<fieldset class="form-group">
+				<legend class="border-bottom mb-4">Submitting Artifacts</legend>
+				<div class ="form-group">
+					{{ form.artifact.label(class="form-control-label") }}
+
+					{% if form.artifact.errors %}
+						{{ form.artifact(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.artifact.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+							
+						</div>
+					{% else %}
+						{{ form.artifact(class="form-control form-control-lg") }}
+					{% endif %}
+				<dir class ="form-group">
+					{{ form.submit(class="btn btn-outline-info") }}
+				</dir>
+			</div>
+			</fieldset>
+	</div>
+
+<div class="submissionHistory">
+	<form method ="POST" action="">
+			{{ form.hidden_tag() }}
+			<fieldset class="form-group">
+				<legend><small>Submission History</small></legend>
+				<small>Total Submissions = {{ total }}</small>
+				<table class = submissionTable cellpadding="8"cellspacing="12">
+				<tr>
+					<th>Artifact</th>
+					<th>Time</th>
+				</tr>
+					{% for a in submissions %}
+					<tr>
+						<td>{{ a.submissionString }}</td>	
+						<td>{{ a.updatedTimeStamp }}</td>
+					</tr>
+					{% endfor %}
+				</table>
+
+			</fieldset>
+	</div>
+
+
+
+{% endblock content %}

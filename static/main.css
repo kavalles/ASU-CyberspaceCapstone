@@ -1,0 +1,319 @@
+body {
+  background: #fafafa;
+  color: #333333;
+  margin-top: 5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #444444;
+}
+
+.bg-steel {
+  background-color: black;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: lightgrey;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.article-title {
+  color: #444444;
+}
+
+a.article-title:hover {
+  color: #428bca;
+  text-decoration: none;
+}
+
+.article-content {
+  white-space: pre-line;
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
+
+
+
+/* Player home page
+====================================*/
+.submitArtifacts {
+  position: absolute;
+  left: 400px;
+  top:  400px;
+  text-align: center;
+  padding: 5px;
+}
+
+.submissionHistory {
+  position: absolute;
+  left: 1000px;
+  top: 80px;
+  bottom: 40px;
+  text-align: center;
+  padding: 5px;
+}
+
+td {
+    text-align: center
+}
+
+.submissionTable {
+  border: solid black;
+  display: block;
+  height: 700px;
+  overflow-y:scroll;
+  overflow-x: scroll;
+  width: 600px;
+}
+
+.artifact-button {
+    background: darkred;
+    box-shadow: none;
+    color:  white;
+    border: none
+}
+
+.artifact-button:hover {
+    background: #682773
+}
+
+.artifact-button:focus {
+    background: #682773;
+    box-shadow: none
+}
+
+.artifact-button:active {
+    background: #682773;
+    box-shadow: none
+}
+
+/* End player homepage */
+
+/* The table for bulk regestraion of teams
+============================================== */
+.bulkRegisterSuccess {
+  display: inline-block;
+  height: 800px;
+  overflow-y:scroll;
+  overflow-x: scroll;
+  width: 1000px;
+  text-align: center;
+}
+.newUsertable{
+  text-align: center;
+  padding: 5px;
+}
+
+/* End table for bulk regestraion of teams */
+
+/* The table for team progress
+============================================== */
+.teamProgressTable{
+  display: inline-block;
+  height: 400px;
+  overflow-y:scroll;
+  overflow-x: scroll;
+  width: 1000px;
+  text-align: center;
+}
+
+.teamProgress {
+  text-align: center;
+  padding: 5px;
+}
+
+/* End table for team progress */
+
+
+/* The artifact List Table
+==============================*/
+.artifactList {
+  display: inline-block;
+  height: 800px;
+  overflow-y:scroll;
+  overflow-x: scroll;
+  width: 1400px;
+  text-align: center;
+}
+
+.artifactTable {
+  text-align: center;
+  padding: 5px;
+}
+
+/* The artifact List Table for editing
+==============================*/
+.manageArtifactList {
+  position: absolute;
+  display: inline-block;
+  height: 800px;
+  overflow-y:scroll;
+  overflow-x: scroll;
+  width: 600px;
+  left: 1000px;
+  right: 100px;
+  top: 200px;
+  text-align: center;
+}
+
+.manageArtifactTable {
+  text-align: center;
+  padding: 5px;
+}
+
+/* Manage Teams team table
+==============================*/
+
+.teams {
+  display: inline-block;
+  position: absolute;
+  left: 900px;
+  top: 300px;
+  bottom: 40px;
+  height: 500px;
+  width:  300px;
+  overflow-x: scroll;
+  text-align: center;
+
+}
+
+.TeamTable {
+  text-align: center;
+}
+
+
+
+/* Profile page 
+==========================*/
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #BA68C8
+}
+
+.profile-button {
+    background: rgb(20, 50, 120);
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: #682773
+}
+
+.profile-button:focus {
+    background: #682773;
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: #682773;
+    box-shadow: none
+}
+
+.back:hover {
+    color: #682773;
+    cursor: pointer
+}
+
+.labels {
+    font-size: 14px
+}
+.labelBigger {
+    font-size: 20px
+}
+/* End profile page */
+
+/* Assessor/Admin navbars and buttons 
+================================*/
+.assessorHomePage{
+  position: relative;
+  left: 100px;
+  text-align: center;
+  padding: 5px;
+}
+
+/* Buttons under admin settings */
+.assessorlink2{
+  position: relative;
+  margin-right: 500px;
+  top:  100px;
+  text-align: center;
+  background-color:  darkred;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* used in nav bars */
+.assessorlink {
+  background-color: darkred;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.adminPage{
+  position: relative;
+  top:  70px;
+  text-align: center;
+  padding: 5px;
+}
+
+
+/* End assessor homepage */
+
+
+
+

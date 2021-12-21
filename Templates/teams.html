@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+
+{% include 'includes/assessor_navbar.html' %}
+
+	<div class="Teams">
+		<img src="{{url_for('plot_teams')}}" alt="Teams plot">
+	</div>
+{% endblock content %}
+
+{% block sideList %}
+	
+	<div class="col-md-4">
+	<div class="content-section">
+	<form action="{{url_for('teamProgress')}}" method="POST">
+		<label for="teams">Select a team:</label>
+		<SELECT name="dropdown">
+		
+		{% for t in teamList %}
+			<OPTION value={{t.userId}}> {{t.username}}</OPTION>
+		{% endfor %}
+		</SELECT>
+		<input class="button" type="submit" value="select">
+		<!--<button type="submit">Generate Progress Report</button>
+		-->
+		
+	</form>
+	</div>
+	</div>
+{% endblock sideList%}
+

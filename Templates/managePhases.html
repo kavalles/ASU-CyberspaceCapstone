@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block title %}
+<title>ManagePhases</title>
+{% endblock title %}
+{% block content %}
+{% include 'includes/admin_navbar.html' %}
+
+<h1>Manage Phases</h1>
+<div class="content-section">
+    <form method ="POST" action="{{ url_for('managePhases') }}">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend>Enter name of new phase:</legend>
+            <div class ="form-group">
+                {{ form.phaseName }}
+                <br>
+                <br>
+                {{ form.createSubmit }}
+                <br>
+                <br>
+                <legend>Select an existing phase to rename or delete:</legend>
+                <br>
+                <select name="phaseSelect" id="phaseSelect">
+                    {% for p in phases %}
+                    <tr>
+                        <option value="{{ p.name }}">{{ p.name }}</option>
+                        {% endfor %}
+                </select>
+                <br>
+                <br>
+                <div class ="form-group">
+                    {{ form.deleteSubmit }}
+                    <div class="invalid-feedback"></div>
+                    <br>
+                    <br>
+                    <legend>Enter new name:</legend>
+                <br>
+                <!--<div class ="form-group">-->
+                    {{ form.editPhaseName }}
+                    <br>
+                    <br>
+                    {{ form.renameSubmit }}
+                    <div class="invalid-feedback">
+                    </div>
+                </div>
+        </fieldset>
+    </form>
+</div>
+
+
+
+{% endblock content %}

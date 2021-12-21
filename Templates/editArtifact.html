@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+{% block title %}
+<title>Edit an Artifact</title>
+{% endblock title %}
+{% block content %}
+{% include 'includes/admin_navbar.html' %}
+<div class="content-section">
+    <form method ="POST" action="{{ url_for('editArtifact') }}">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+
+            Select an existing artifact to edit:
+            <br>
+            <select name="artifactSelect" id="artifactSelect" method="POST" onchange="this.form.submit();">
+                {% for a in artifacts %}
+                <tr>
+                    <option value="{{ a.msel }}">{{ a.msel }}</option>
+                    {% endfor %}
+            </select>
+            {{ form.selectSubmit(class="btn btn-outline-info") }}
+
+            <legend class="border-bottom mb-4">{{ title }}</legend>
+
+            <div class ="form-group">
+                {{ form.artifactId.label(class="form-control-label")}} <br>
+                {{ form.artifactId}}
+
+
+            </div>
+            Select a Phase Name:
+            <br>
+            <select name="phaseSelect" id="phaseSelect" method="POST" onchange="this.form.submit();">
+                {% for p in phases %}
+                <tr>
+                    <option value="{{ p.name }}">{{ p.name }}</option>
+                    {% endfor %}
+            </select>
+            <div class ="form-group">
+                {{ form.phaseArtifactId.label(class="form-control-label")}} <br>
+                {{ form.phaseArtifactId}}
+
+
+            </div>
+            <div class ="form-group">
+                {{ form.artifactName.label(class="form-control-label") }} <br>
+                {{ form.artifactName}}
+
+            </div>
+            <div class ="form-group">
+                {{ form.artifactType.label(class="form-control-label") }} <br>
+                {{ form.artifactType}}
+
+            </div>
+            <div class ="form-group">
+                {{ form.artifactString.label(class="form-control-label") }} <br>
+                {{ form.artifactString}}
+
+            </div>
+            <div class ="form-group">
+                {{ form.difficulty.label(class="form-control-label") }} <br>
+                {{ form.difficulty}}
+
+            </div>
+            <div class ="form-group">
+                {{ form.notes.label(class="form-control-label") }} <br>
+                {{ form.notes}}
+
+
+            </div>
+        </fieldset>
+        <dir class ="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </dir>
+    </form>
+</div>
+
+{% endblock content %}
